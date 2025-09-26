@@ -2,7 +2,6 @@ import os
 
 
 def create_zero_file_compact():
-    """Компактная версия с основными проверками"""
 
     # Получаем входные данные
     path = input("Путь для сохранения (Enter - здесь): ").strip() or "."
@@ -11,7 +10,7 @@ def create_zero_file_compact():
     try:
         size_mb = int(input("Размер в MB (Enter - 10): ").strip() or "10")
     except ValueError:
-        print("❌ Ошибка: введите число")
+        print("Ошибка: введите число")
         return
 
     # Создаем папку если нужно
@@ -23,12 +22,12 @@ def create_zero_file_compact():
     try:
         print(f"Создаю файл {size_mb}MB...")
         with open(full_path, 'wb') as f:
-            f.write(b'\x00' * (size_mb * 1024 * 1024))  # Бинарные нули
+            f.write(b'\x00' * (size_mb * 1024 * 1024))
 
-        print(f"✅ Готово: {full_path}")
+        print(f"Готово: {full_path}")
 
     except Exception as e:
-        print(f"❌ Ошибка создания: {e}")
+        print(f"Ошибка создания: {e}")
 
 
 # Запуск
